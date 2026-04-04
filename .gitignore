@@ -2,7 +2,7 @@ node_modules/
 NewSocietyPay/node_modules/Backend/node_modules/
 
 venv/
-AI-service/venv
+AI-service/venv/
 
 .env
 *.log
