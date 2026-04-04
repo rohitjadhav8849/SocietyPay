@@ -1,0 +1,11 @@
+node_modules/
+NewSocietyPay/node_modules/Backend/node_modules/
+
+venv/
+AI-service/venv
+
+.env
+*.log
+android/build
+ios/build
+.DS_store
