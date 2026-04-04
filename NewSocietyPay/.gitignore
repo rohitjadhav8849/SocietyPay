@@ -52,6 +52,8 @@ yarn-error.log
 **/fastlane/screenshots
 **/fastlane/test_output
 
+echo "NewSocietyPay/android/gradle/wrapper/dist/" >> .gitignore
+
 # Bundle artifact
 *.jsbundle
 
