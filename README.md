@@ -1,143 +1,128 @@
-🛡️ Smart Security Visitor Management System
+🛡️ SocietyPay + Smart Security System
 
-AI-Powered Society Visitor Tracking & Risk Detection
+AI-Powered Society Management + Visitor Intelligence 🚀
 
-A production-level full-stack mobile application designed to manage, monitor, and intelligently analyze visitor behavior in residential societies using real-time data + machine learning.
+<div align="center"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=28&pause=1000&color=4FC3F7&center=true&vCenter=true&width=700&lines=SocietyPay+%2B+Smart+Security;AI+Visitor+Behavior+Detection;Full+Stack+%2B+ML+Project" /><br/>"React Native" (https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+"Node.js" (https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js)
+"MongoDB" (https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb)
+"Python" (https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python)
+"FastAPI" (https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 
----
+</div>---
 
-📌 Problem Statement
+🧠 Project Overview
 
-Traditional society security systems rely on manual registers or basic apps that:
+This is a full-stack intelligent society management system that combines:
 
-- ❌ Do not track visitor behavior over time
-- ❌ Cannot detect suspicious patterns
-- ❌ Lack real-time monitoring
-- ❌ Provide no analytics or insights
-
-👉 This project solves that by combining mobile technology + backend intelligence + ML-based anomaly detection.
-
----
-
-💡 Solution Overview
-
-This system provides a smart security dashboard where guards can:
-
-- Track visitor entries & exits
-- Monitor current visitors inside the society
-- Detect suspicious behavior using ML
-- Visualize weekly visitor trends
-- Get real-time updates every 10 minutes
+- 💳 Payments (Razorpay)
+- 🧠 AI-based decision systems
+- 🛡️ Smart security monitoring
+- 📊 Real-time analytics
 
 ---
 
-🚀 Core Features
+🔥 NEW: Smart Security System (Highlight Feature 🚨)
 
-🔐 1. Security Dashboard (Real-Time Monitoring)
+This module brings AI-powered visitor monitoring into societies.
 
-- Displays all visitors currently inside
-- Shows:
+💡 What it does:
+
+- Tracks every visitor entry & exit
+- Monitors live visitors currently inside
+- Detects anomaly behavior using ML
+- Updates behavior every 10 minutes automatically
+- Shows risk level: Normal / Suspicious
+
+---
+
+📊 Visitor Intelligence Features
+
+🔍 Real-Time Tracking
+
+- Shows who is currently inside
+- Displays:
   - 👤 Name
   - ⏱ Entry Time
   - ⌛ Duration inside
-  - ⚠️ Behavior (Normal / Suspicious)
-- Auto-refresh every 10 minutes
-- Designed for quick decision-making by guards
+  - ⚠️ Behavior
 
 ---
 
-📊 2. Visitor Analytics (Graph System)
+🧠 AI Behavior Detection
 
-- Weekly visitor trends using line chart
-- Data fetched dynamically from backend
-- Handles:
-  - Missing days (fills with 0)
-  - Data normalization
-  - Stable Mon → Sun ordering
-- Prevents UI crashes (NaN-safe handling)
+ML model uses:
 
----
+- Visit frequency
+- Entry timing
+- Stay duration
+- Number of flats visited
 
-🧾 3. Visitor Management System
-
-- Add new visitor with:
-  - Name
-  - Phone number
-  - Flat (Wing + Number)
-  - Purpose
-- Automatic entry timestamp
-- Exit tracking system
-- Full visit history stored in database
-
----
-
-📜 4. Visitor History & Detail View
-
-- View complete visit logs
-- Click on any visitor to see:
-  - All previous visits
-  - Stay durations
-  - Flats visited
-  - Behavior analysis
-
----
-
-🧠 5. AI-Based Anomaly Detection (Key Highlight 🚨)
-
-The system analyzes visitor behavior using multiple features:
-
-🔍 Features Used:
-
-- Visit frequency (same person multiple times)
-- Entry time patterns (odd hours)
-- Stay duration (too long / too short)
-- Number of unique flats visited
-
-⚙️ Flow:
-
-1. Backend collects visitor data
-2. Sends data to ML API
-3. ML model predicts risk
-4. Result stored in DB ("anomalyRisk")
-5. Displayed in frontend
-
-🏷 Output:
+➡️ Output:
 
 - ✅ Normal
 - ⚠️ Suspicious
 
 ---
 
-🔄 6. Live Behavior Tracking System
+🔄 Auto Refresh System
 
-- Tracks visitors who have not exited
-- Continuously updates:
-  - Duration
-  - Risk behavior
-- Backend API runs every 10 minutes
-- Ensures real-time anomaly detection
+- Backend updates behavior every 10 minutes
+- Frontend auto-refresh using "setInterval"
+- Ensures real-time monitoring
 
 ---
 
-🧠 System Architecture
+📜 Visitor History System
 
-React Native App
-        ↓
-Node.js + Express Backend
-        ↓
-MongoDB Database
-        ↓
-Python ML API (Anomaly Detection)
+- Stores all visits
+- Shows:
+  - Previous visits
+  - Flats visited
+  - Duration trends
 
 ---
 
-🛠️ Tech Stack
+📷 Security Module Screenshots
+
+🏠 Security Dashboard
+
+<img src="SecuritySS/SecurityHome.jpeg" width="300"/>---
+
+👤 Visitor Detailed View
+
+<img src="SecuritySS/VisitorDetails.jpeg" width="300"/>---
+
+📜 Visitor History
+
+<img src="SecuritySS/VisitorHistory.jpeg" width="300"/>---
+
+🔍 In-depth Visitor Analysis
+
+<img src="SecuritySS/Indepthvisitor.jpeg" width="300"/>---
+
+👮 Security Profile
+
+<img src="SecuritySS/SecurityProfile.jpeg" width="300"/>---
+
+🏗 System Architecture
+
+📱 React Native App
+        ↓
+🌐 Node.js Backend (Express)
+        ↓
+🗄 MongoDB Database
+        ↓
+🤖 Python ML Service (FastAPI)
+
+---
+
+⚙️ Tech Stack
 
 📱 Frontend
 
 - React Native
 - TypeScript
-- react-native-chart-kit
+- Chart Kit
 
 🌐 Backend
 
@@ -145,142 +130,64 @@ Python ML API (Anomaly Detection)
 - Express.js
 - MongoDB (Mongoose)
 
-🤖 Machine Learning
+🤖 AI
 
 - Python
-- Flask / FastAPI
+- FastAPI
 - Custom anomaly detection logic
-
----
-
-📂 Database Schema (Visitor)
-
-{
-  name: String,
-  phone: String,
-  flat: {
-    wing: String,
-    number: String
-  },
-  purpose: String,
-  entryTime: Date,
-  exitTime: Date,
-  societyid: ObjectId,
-  securityid: ObjectId,
-  anomalyRisk: String
-}
 
 ---
 
 🔌 Key APIs
 
-📍 Visitor APIs
+Visitor APIs
 
-- "POST /visitor/add" → Add visitor
-- "PUT /visitor/exit/:id" → Mark exit
-- "GET /visitor/history" → Full history
+- "POST /visitor/add"
+- "PUT /visitor/exit/:id"
+- "GET /visitor/history"
 
-🤖 ML APIs
+Security APIs
 
-- "POST /detect-visitor" → Detect anomaly
-- "GET /detect-visitor-risk" → Update all visitors
-
-📊 Analytics APIs
-
-- "GET /visitorstats" → Weekly graph data
-- "GET /insidevisitors" → Current visitors inside
+- "GET /insidevisitors"
+- "GET /visitorstats"
+- "GET /detect-visitor-risk" (auto update)
 
 ---
 
-⚙️ Setup Instructions
+⚠️ Challenges Solved
 
-1️⃣ Clone Repo
+❌ Graph Crash (NaN Error)
 
-git clone https://github.com/YOUR_USERNAME/security-visitor-app.git
-cd security-visitor-app
+✔ Fixed using data sanitization
 
----
+❌ Real-time updates
 
-2️⃣ Backend Setup
+✔ Solved with interval-based fetching
 
-cd backend
-npm install
-npm start
+❌ ML data inconsistency
 
----
-
-3️⃣ Frontend Setup
-
-cd frontend
-npm install
-npx react-native run-android
+✔ Feature engineering + normalization
 
 ---
 
-4️⃣ ML Server
+🚀 Future Enhancements
 
-cd ml-service
-pip install -r requirements.txt
-python app.py
-
----
-
-🔐 Environment Variables
-
-Create ".env" in backend:
-
-MONGO_URI=your_mongodb_url
-PORT=5000
-ML_API_URL=http://127.0.0.1:8000
-
----
-
-⚠️ Challenges Faced & Solutions
-
-❌ Chart Crashing Issue
-
-- Cause: NaN / undefined values
-- Fix: Data sanitization + fixed ordering
-
-❌ Real-Time Behavior Tracking
-
-- Solved using interval-based API refresh
-
-❌ ML Data Quality Issue
-
-- Improved by:
-  - Feature engineering
-  - Data normalization
-
----
-
-🔥 Future Enhancements
-
-- 🔔 Push notifications for suspicious visitors
-- 📸 Face recognition integration
-- 📍 GPS-based tracking
-- 📊 Advanced ML model (Deep Learning)
-- 🧠 Predictive risk scoring
-
----
-
-📈 Impact
-
-- Improves security awareness
-- Reduces manual errors
-- Enables data-driven decisions
-- Adds intelligence to traditional systems
+- 🔔 Push notification for suspicious visitors
+- 📸 Face recognition
+- 📍 GPS tracking
+- 🧠 Deep learning model
 
 ---
 
 👨‍💻 Author
 
 Rohit Jadhav
-🎓 NIT Silchar (3rd Year)
+🎓 NIT Silchar
 💻 Full Stack Developer | ML Enthusiast
 
 ---
 
-⭐ If you like this project
+<div align="center">⭐ Star this repo if you found it useful
+🔥 This project combines Full Stack + AI — built for real-world impact
 
-Give it a star ⭐ on GitHub — it helps a lot!
+</div>
