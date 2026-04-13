@@ -7,3 +7,5 @@ export type typeTabs ="Home" |
 "inDepthMembers"|
 "issues"|
 "raise";
+
+export type securityTabs="Home"| "History"|"Profile"| "register"| "details";

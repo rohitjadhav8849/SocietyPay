@@ -9,7 +9,7 @@ import SecretaryHistory from "./secretryHistory";
  * role comes from login / app state
  */
 type Props = {
-  role: "member" | "secretary";
+  role: "member" | "secretary"|"security";
 };
 
 const HistoryScreen = ({ role }: Props) => {

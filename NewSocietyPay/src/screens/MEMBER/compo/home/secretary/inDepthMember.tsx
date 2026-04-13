@@ -18,7 +18,6 @@ const InDepthDetails = ({
   goBack: () => void;
   clicked: string | null;
 }) => {
-  const {user} = useContext(UserContext);
   const [member, setmember] = useState<any>(null);
   const [documents, setDocuments] = useState<any[]>([]);
   const [risklabel, setrisklabel] = useState<any>(null);
@@ -63,7 +62,7 @@ const InDepthDetails = ({
   //  AI risk prediction
   const predict = async () => {
     try {
-      const resp = await API.get(`/ml/ai/predict/${user._id}`);
+      const resp = await API.get(`/ml/ai/predict/${clicked}`);
       console.log(resp.data);
       setrisklabel(resp.data.risk);
       setLatePayments(resp.data.late_payments);

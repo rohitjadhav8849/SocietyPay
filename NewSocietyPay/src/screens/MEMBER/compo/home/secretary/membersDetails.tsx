@@ -2,7 +2,6 @@ import React,{useEffect,useState,useContext} from "react";
 
 import {View,Text,FlatList,TouchableOpacity} from "react-native"
 import API from "../../../../../api/api";
-import { UserContext } from "../../../Schemas/userContext";
 
 const MemberDetails= ({ goBack,inDepth}:{
   inDepth:(id:any)=>void,

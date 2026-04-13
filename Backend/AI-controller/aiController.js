@@ -7,6 +7,7 @@ exports.predictPaymentRisk = async(req,res) =>{
       const payments= await Payments.find({user:userid}).populate("bill");
       let late_payments= 0;
       let missed_payments=0;
+      
       payments.forEach(p=>{
         if(p.status==="pending"){
           const deadline = new Date(p.bill.deadline)
@@ -15,7 +16,7 @@ exports.predictPaymentRisk = async(req,res) =>{
             late_payments++;
           }
         }
-        if(p.status==="faied"){
+        if(p.status==="failed"){
           const deadline = new Date(p.bill.deadline)
           const today=new Date();
           if(today>deadline){
@@ -23,11 +24,7 @@ exports.predictPaymentRisk = async(req,res) =>{
           }
         }
       })
-
-      console.log(late_payments," ",missed_payments);
-
     
-
       const resp=await axios.post(
         "http://127.0.0.1:8000/predict-payment-risk",
         {

@@ -8,7 +8,7 @@ const userSchema=new mongoose.Schema({
   name:String,
   mobile: {type:String,unique:true},
   password:String,
-  role:{type:String,enum:["member","secretary"]},
+  role:{type:String,enum:["member","secretary","security"]},
   flat:{
     wing:String,
     number:String,

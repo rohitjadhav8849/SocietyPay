@@ -4,7 +4,7 @@ import MemberHome from "./selfMember/memberhome";
 import SecretaryHome from "./secretary/secretaryhome";
 
 type Props = {
-  role: "member" | "secretary";
+  role: "member" | "secretary"|"security";
   Gochat:()=>void;
   memberDetails:()=>void;
   GoPay:()=>void
@@ -17,11 +17,13 @@ const Home = ({ role,memberDetails,Gochat,GoPay,Goissue}: Props) => {
       style={styles.container}
       showsVerticalScrollIndicator={false}
     >
+       
+
       {/* COMMON MEMBER VIEW */}
-      <MemberHome Gochat={Gochat} GoPay={GoPay} Goissue={Goissue} />
+         <MemberHome Gochat={Gochat} GoPay={GoPay} Goissue={Goissue} />
 
       {/* EXTRA FOR SECRETARY */}
-      {role === "secretary" && <SecretaryHome  memberDetails={()=>memberDetails()} />}
+      <SecretaryHome  memberDetails={()=>memberDetails()} />
     </ScrollView>
   );
 };

@@ -40,21 +40,21 @@ useEffect(()=>{
       {/* ===== HEADER ===== */}
       <View style={styles.header}>
         <Text style={styles.name}>{user.name}</Text>
-        <Text style={styles.subText}>
-          {user.flat.wing}-{user.flat.number} {Sname} park
+        <Text style={user.role!=="security" &&  styles.subText}>
+        {user.role!=="security" && <Row label="Flat" value={`${user?.flat?.wing}-${user?.flat?.number}`} />}  
         </Text>
         <Text style={styles.subText}>
-          {Sname} park
+          {Sname}
         </Text>
         <Text style={styles.role}>
-          {user.role === "secretary" ? "Secretary" : "Member"}
+          {user.role.toUpperCase()}
         </Text>
       </View>
 
       {/* ===== BASIC INFO ===== */}
       <Section title="Personal Info">
         <Row label="Mobile" value={user.mobile} />
-        <Row label="Flat" value={`${user.flat.wing}-${user.flat.number}`} />
+          
       </Section>
 
       {/* ===== DOCUMENTS ===== */}

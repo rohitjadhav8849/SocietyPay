@@ -15,7 +15,7 @@ import AddPaymentScreen from "./AddPaymentScreen";
 import API from "../../../../../api/api";
 
 /* ---------- TYPES ---------- */
-type Role = "member" | "secretary";
+type Role = "member" | "secretary"|"security";
 
 
 const PayScreen = ({ role }: { role: Role }) => {
@@ -133,7 +133,6 @@ const PayScreen = ({ role }: { role: Role }) => {
     )
   }
   return (
-    <ScrollView>
     <View style={styles.container}>
         {/* SUMMARY */}
         <View style={styles.summary}>
@@ -163,7 +162,6 @@ const PayScreen = ({ role }: { role: Role }) => {
         )}
         
     </View>
-    </ScrollView>
   );
 };
 

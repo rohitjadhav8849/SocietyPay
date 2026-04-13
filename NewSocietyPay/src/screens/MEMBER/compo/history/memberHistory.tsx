@@ -76,7 +76,7 @@ const MemberHistory = ({Goback}:{Goback:()=>void}) => {
                 {item.status.toUpperCase()}
               </Text>
 
-              <Text style={styles.footerText}>{item.deadline}</Text>
+              <Text style={styles.footerText}>{item.deadline.toString().slice(0,10)}</Text>
             </View>
           </View>
         )}

@@ -76,8 +76,8 @@ const Memberhome = ({Gochat,GoPay,Goissue}:{
   
         {/* ===== SUMMARY CARDS ===== */}
         <View style={styles.row}>
-          <StatCard title="Paid" value="87" sub="of 120" />
-          <StatCard title="Pending" value="33" sub="members" />
+          <StatCard title="Paid" value="2" sub="of 3" />
+          <StatCard title="Pending" value="1" sub="members" />
         </View>
   
         <View style={styles.fullCard}>
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     padding: 16,
     borderRadius: 16,
-    borderWidth:1,
+    borderLeftWidth:1.5,
     borderColor:"#0F172A",
   },
 

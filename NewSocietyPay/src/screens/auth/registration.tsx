@@ -39,9 +39,6 @@ export default function RegisterScreen({doneregister}:{doneregister:()=>void}){
  const [bill,setBill]=useState("");
  const [aadhar,setAadhar]=useState("");
 
- useEffect(()=>{
-  fetchSocieties()
- },[])
 
  const fetchSocieties = async ()=>{
   try{
@@ -51,6 +48,10 @@ export default function RegisterScreen({doneregister}:{doneregister:()=>void}){
    console.log("society fetch error",err)
   }
  }
+  useEffect(()=>{
+  fetchSocieties()
+ },[])
+
 
  const pickSelfie= async ()=>{
     launchCamera({mediaType:'photo',cameraType:'front'},(Response)=>{
@@ -100,6 +101,9 @@ export default function RegisterScreen({doneregister}:{doneregister:()=>void}){
     documents 
    }
    if(role === "member"){
+    data.society = selectedSociety
+   }
+   if(role==="security"){
     data.society = selectedSociety
    }
    if(role === "secretary"){
@@ -185,19 +189,6 @@ export default function RegisterScreen({doneregister}:{doneregister:()=>void}){
    }}
   />
   
-  <TextInput
-   placeholder="Electricity Bill Number"
-   placeholderTextColor="#94A3B8" 
-   value={bill}
-   onChangeText={setBill}
-   style={{
-    backgroundColor: "#1E293B", 
-    color: "#FFFFFF", 
-    borderRadius:10,
-    padding:12,
-    marginBottom:12
-   }}
-  />
   
   <TouchableOpacity
    onPress={pickSelfie}
@@ -265,12 +256,43 @@ export default function RegisterScreen({doneregister}:{doneregister:()=>void}){
   Secretary
   </Text>
   </TouchableOpacity>
+
+  <TouchableOpacity
+   onPress={()=>setRole("security")}
+   style={{
+    flex:1,
+    padding:12,
+    borderRadius:10,
+    backgroundColor:role==="security"?"#0F172A":"#E2E8F0",
+    alignItems:"center"
+   }}
+  >
+  <Text style={{color:role==="security"?"white":"black"}}>
+  Security
+  </Text>
+  </TouchableOpacity>
   
   </View>
   
   {/* MEMBER FORM */}
+
+  {role!=="security" && (
+    <TextInput
+    placeholder="Electricity Bill Number"
+    placeholderTextColor="#94A3B8" 
+    value={bill}
+    onChangeText={setBill}
+    style={{
+     backgroundColor: "#1E293B", 
+     color: "#FFFFFF", 
+     borderRadius:10,
+     padding:12,
+     marginBottom:12
+    }}
+   />
+  )}
   
-  {role === "member" && (
+  {(role === "member" || role==="security") && (
   
   <View>
   

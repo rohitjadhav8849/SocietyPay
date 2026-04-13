@@ -4,6 +4,9 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
+from sklearn.ensemble import IsolationForest
+import random
+
 app = FastAPI()
 # dummy training data
 # data is LatePayments,MissedPayments
@@ -89,3 +92,46 @@ def analyze(data:dict):
       "category":category,
       "priority":priority
     }
+
+trainingData=[]
+for i in range(90):
+    visit_frequency= random.randint(1,3)
+    entry_hour=random.randint(16,21)
+    stay_duration=random.randint(10,60)
+    unique_flats=1
+    trainingData.append([
+      visit_frequency,
+      entry_hour,
+      stay_duration,
+      unique_flats
+    ])
+
+for i in range(10):
+    visit_frequency=random.randint(8,15)
+    entry_hour=random.choice([22,24,0,1,2,3])
+    stay_duration=random.randint(90,180)
+    unique_flats=random.randint(2,5)
+    trainingData.append([
+      visit_frequency,
+      entry_hour,
+      stay_duration,
+      unique_flats
+    ])
+
+fullData= np.array(trainingData)
+model = IsolationForest(contamination=0.1)
+model.fit(fullData)
+
+@app.post("/detect-visitor-risk")
+def detect(data:dict):
+    features=[
+        data["visit_frequency"],
+        data["entry_hour"],
+        data["stay_duration"],
+        data["unique_flats"]
+    ]
+    prediction = model.predict([features])[0]
+    if prediction==-1:
+        return {"risk":"anomaly"}
+    else:
+        return {"risk":"normal"}

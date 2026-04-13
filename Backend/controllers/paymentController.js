@@ -43,7 +43,7 @@ exports.getMyPayments = async (req, res) => {
       societyid: req.user.societyid,
     })
       .populate({ path: "bill", select: "reason amount month year deadline" })
-      .sort({ created: -1 });
+      .sort({ createdAt: -1 });
     res.json(payments);
   } catch (err) {
     res.status(500).json({ message: "server down" });
@@ -55,7 +55,6 @@ exports.createPaymentOrder = async (req, res) => {
     const { paymentid } = req.body;
     const payment = await Payments.findById(paymentid).populate("bill");
 
-    console.log(payment);
     if (!payment) {
       return res.status(404).json({ message: "payment not found" });
     }
@@ -97,10 +96,11 @@ exports.verifyPayment = async (req, res) => {
       .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
       .update(body)
       .digest("hex");
+    
 
     if (expected === razorpay_signature) {
-      const updated = await Payments.findOneAndUpdate(
-        { _id: paymentid },
+      const updated = await Payments.findByIdAndUpdate(
+         paymentid,
         {
           status: "paid",
           razorpay_payment_id,
@@ -117,9 +117,10 @@ exports.verifyPayment = async (req, res) => {
   }
 };
 
+
 exports.markPaymentFailed = async (req, res) => {
   try {
-    const { paymentid } = req.bodyl;
+    const { paymentid } = req.body;
     const payment = await Payments.findById(paymentid);
     if (!payment) {
       res.status(404).json({ message: "payment not found" });
