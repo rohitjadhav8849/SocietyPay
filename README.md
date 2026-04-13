@@ -1,248 +1,286 @@
-<div align="center">
+🛡️ Smart Security Visitor Management System
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=28&pause=1000&color=4FC3F7&center=true&vCenter=true&width=600&lines=🏢+SocietyPay;AI-Powered+Society+Management;Built+with+React+Native+%2B+ML" alt="Typing SVG" />
+AI-Powered Society Visitor Tracking & Risk Detection
 
-<br/>
-
-[![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)](https://razorpay.com/)
-
-<br/>
-
-> **SocietyPay** is a full-stack mobile platform that brings AI to residential society management —
-> automating payments, predicting defaulters, and intelligently routing complaints using NLP.
-
-<br/>
-
-[📱 Features](#-features) • [🤖 AI Services](#-ai-services) • [🏗 Architecture](#-architecture) • [📷 Screenshots](#-screenshots) • [⚙ Setup](#-installation) • [🔮 Roadmap](#-roadmap)
-
-</div>
+A production-level full-stack mobile application designed to manage, monitor, and intelligently analyze visitor behavior in residential societies using real-time data + machine learning.
 
 ---
 
-## 💡 The Problem
+📌 Problem Statement
 
-Managing a residential society is painful:
+Traditional society security systems rely on manual registers or basic apps that:
 
-- 🔴 Maintenance payments are delayed and hard to track
-- 🔴 Complaints pile up with no priority or routing
-- 🔴 Secretaries have no visibility into who is likely to default
-- 🔴 Communication between residents and management is scattered
+- ❌ Do not track visitor behavior over time
+- ❌ Cannot detect suspicious patterns
+- ❌ Lack real-time monitoring
+- ❌ Provide no analytics or insights
 
-**SocietyPay solves all of this in one AI-powered mobile app.**
-
----
-
-## ✨ Features
-
-| Module | What it does |
-|--------|-------------|
-| 💳 **Smart Payments** | Secretary generates bills · Members pay via Razorpay · Auto-verification |
-| 🤖 **AI Risk Prediction** | ML flags members likely to default before it happens |
-| 🧠 **NLP Complaints** | Auto-categorizes, prioritizes & routes complaints to the right person |
-| 📊 **Secretary Dashboard** | Live overview — collections, pending, risky members |
-| 🧾 **Bill Overview** | Itemized billing history for every flat |
-| 📢 **Communication Hub** | Announcements, notifications, resident updates |
-| 👤 **Member Profiles** | Documents, payment history, AI risk score per member |
+👉 This project solves that by combining mobile technology + backend intelligence + ML-based anomaly detection.
 
 ---
 
-## 🤖 AI Services
+💡 Solution Overview
 
-### 🔴 Payment Risk Prediction
-A dedicated Python microservice studies each member's payment behavior and classifies them into risk categories — so the secretary can act **before** a default happens.
+This system provides a smart security dashboard where guards can:
 
-```
-Inputs  ──▶  Late payments · Missed payments · Payment frequency
-Output  ──▶  🟢 Low Risk  |  🟡 Medium Risk  |  🔴 High Risk
-Stack   ──▶  Python · FastAPI · Scikit-learn
-```
-
----
-
-### 🧠 NLP Complaint Prioritization
-Residents type complaints in plain language. The ML model reads it, understands it, and handles the rest — no manual sorting needed.
-
-```
-"Water leaking badly from bathroom pipe"
-                    │
-          ┌─────────▼──────────┐
-          │   NLP Classifier   │
-          │   (Naive Bayes)    │
-          └─────────┬──────────┘
-                    │
-       ┌────────────┼─────────────┐
-       ▼            ▼             ▼
-  Category:     Priority:     Route to:
-  Plumbing    🔴 High        Plumber
-```
-
-**Live Examples:**
-
-| Complaint | Category | Priority | Assigned To |
-|-----------|----------|----------|-------------|
-| Water leaking from bathroom | Plumbing | 🔴 High | Plumber |
-| Lift making unusual noise | Maintenance | 🟡 Medium | Technician |
-| Corridor light not working | Electrical | 🟢 Low | Electrician |
-| Garbage not collected | Cleaning | 🟡 Medium | Housekeeping |
+- Track visitor entries & exits
+- Monitor current visitors inside the society
+- Detect suspicious behavior using ML
+- Visualize weekly visitor trends
+- Get real-time updates every 10 minutes
 
 ---
 
-## 🏗 Architecture
+🚀 Core Features
 
-```
-┌─────────────────────────────────────┐
-│     React Native App (TypeScript)   │
-└──────────────┬──────────────────────┘
-               │ REST API · JWT Auth
-               ▼
-┌─────────────────────────────────────┐
-│      Node.js / Express Backend      │
-│                                     │
-│  ┌──────────────┐                   │
-│  │   MongoDB    │  ← Mongoose ODM   │
-│  └──────────────┘                   │
-│                                     │
-│  ┌──────────────────────────────┐   │
-│  │   Python AI Microservice     │   │
-│  │         (FastAPI)            │   │
-│  │                              │   │
-│  │  ┌─────────────────────┐    │   │
-│  │  │ Payment Risk Model  │    │   │
-│  │  │   (Scikit-learn)    │    │   │
-│  │  └─────────────────────┘    │   │
-│  │                              │   │
-│  │  ┌─────────────────────┐    │   │
-│  │  │  NLP Complaint      │    │   │
-│  │  │  Classifier         │    │   │
-│  │  │  (Naive Bayes)      │    │   │
-│  │  └─────────────────────┘    │   │
-│  └──────────────────────────────┘   │
-└─────────────────────────────────────┘
-```
+🔐 1. Security Dashboard (Real-Time Monitoring)
+
+- Displays all visitors currently inside
+- Shows:
+  - 👤 Name
+  - ⏱ Entry Time
+  - ⌛ Duration inside
+  - ⚠️ Behavior (Normal / Suspicious)
+- Auto-refresh every 10 minutes
+- Designed for quick decision-making by guards
 
 ---
 
-## 🛠 Tech Stack
+📊 2. Visitor Analytics (Graph System)
 
-```
-📱 Mobile        →  React Native · TypeScript
-🖥  Backend       →  Node.js · Express.js · JWT
-🗄  Database      →  MongoDB · Mongoose
-💳 Payments      →  Razorpay API
-🤖 AI / ML       →  Python · FastAPI · Scikit-learn
-🧠 NLP           →  Naive Bayes · CountVectorizer
-```
-
----
-
-## 📷 Screenshots
-
-### 🏠 Home & Dashboard
-| Home Screen | Secretary Dashboard | Bill Overview |
-|:-----------:|:------------------:|:-------------:|
-| ![Home](ScreenShots/HomePage.jpeg) | ![Dashboard](ScreenShots/dashboard.jpeg) | ![Bills](ScreenShots/billOverview.jpeg) |
-
-### 💳 Payments & History
-| Pay Screen | Payment History |
-|:----------:|:--------------:|
-| ![Pay](ScreenShots/Pay.jpeg) | ![History](ScreenShots/History.jpeg) |
-
-### 🤖 AI Features
-| AI Risk Analysis | Complaint System |
-|:---------------:|:---------------:|
-| ![AIRisk](ScreenShots/AIRisk.jpeg) | ![Issues](ScreenShots/Issues.jpeg) |
-
-### 📢 Communication
-| Notifications | Announcements | Communication Hub |
-|:------------:|:-------------:|:-----------------:|
-| ![Notif](ScreenShots/Notifications.jpeg) | ![Ann](ScreenShots/Announcement.jpeg) | ![Hub](ScreenShots/communicationHub.jpeg) |
+- Weekly visitor trends using line chart
+- Data fetched dynamically from backend
+- Handles:
+  - Missing days (fills with 0)
+  - Data normalization
+  - Stable Mon → Sun ordering
+- Prevents UI crashes (NaN-safe handling)
 
 ---
 
-## 🎥 Demo Videos
+🧾 3. Visitor Management System
 
-| Payment Flow | AI Complaint Risk |
-|:-----------:|:-----------------:|
-| [▶ Watch Payment Demo](ScreenShots/Payment.mp4) | [▶ Watch AI Demo](ScreenShots/ComplaintRisk.mp4) |
+- Add new visitor with:
+  - Name
+  - Phone number
+  - Flat (Wing + Number)
+  - Purpose
+- Automatic entry timestamp
+- Exit tracking system
+- Full visit history stored in database
 
 ---
 
-## ⚙ Installation
+📜 4. Visitor History & Detail View
 
-### Prerequisites
-- Node.js ≥ 18
-- Python ≥ 3.10
-- Android Studio / Xcode
-- MongoDB running locally or Atlas URI
+- View complete visit logs
+- Click on any visitor to see:
+  - All previous visits
+  - Stay durations
+  - Flats visited
+  - Behavior analysis
 
-### 1. Clone
-```bash
-git clone https://github.com/rohitjadhav8849/SocietyPay.git
-cd SocietyPay
-```
+---
 
-### 2. Backend
-```bash
-cd Backend
+🧠 5. AI-Based Anomaly Detection (Key Highlight 🚨)
+
+The system analyzes visitor behavior using multiple features:
+
+🔍 Features Used:
+
+- Visit frequency (same person multiple times)
+- Entry time patterns (odd hours)
+- Stay duration (too long / too short)
+- Number of unique flats visited
+
+⚙️ Flow:
+
+1. Backend collects visitor data
+2. Sends data to ML API
+3. ML model predicts risk
+4. Result stored in DB ("anomalyRisk")
+5. Displayed in frontend
+
+🏷 Output:
+
+- ✅ Normal
+- ⚠️ Suspicious
+
+---
+
+🔄 6. Live Behavior Tracking System
+
+- Tracks visitors who have not exited
+- Continuously updates:
+  - Duration
+  - Risk behavior
+- Backend API runs every 10 minutes
+- Ensures real-time anomaly detection
+
+---
+
+🧠 System Architecture
+
+React Native App
+        ↓
+Node.js + Express Backend
+        ↓
+MongoDB Database
+        ↓
+Python ML API (Anomaly Detection)
+
+---
+
+🛠️ Tech Stack
+
+📱 Frontend
+
+- React Native
+- TypeScript
+- react-native-chart-kit
+
+🌐 Backend
+
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+
+🤖 Machine Learning
+
+- Python
+- Flask / FastAPI
+- Custom anomaly detection logic
+
+---
+
+📂 Database Schema (Visitor)
+
+{
+  name: String,
+  phone: String,
+  flat: {
+    wing: String,
+    number: String
+  },
+  purpose: String,
+  entryTime: Date,
+  exitTime: Date,
+  societyid: ObjectId,
+  securityid: ObjectId,
+  anomalyRisk: String
+}
+
+---
+
+🔌 Key APIs
+
+📍 Visitor APIs
+
+- "POST /visitor/add" → Add visitor
+- "PUT /visitor/exit/:id" → Mark exit
+- "GET /visitor/history" → Full history
+
+🤖 ML APIs
+
+- "POST /detect-visitor" → Detect anomaly
+- "GET /detect-visitor-risk" → Update all visitors
+
+📊 Analytics APIs
+
+- "GET /visitorstats" → Weekly graph data
+- "GET /insidevisitors" → Current visitors inside
+
+---
+
+⚙️ Setup Instructions
+
+1️⃣ Clone Repo
+
+git clone https://github.com/YOUR_USERNAME/security-visitor-app.git
+cd security-visitor-app
+
+---
+
+2️⃣ Backend Setup
+
+cd backend
 npm install
-# Add your .env (MongoDB URI, JWT Secret, Razorpay keys)
-npm run dev
-```
+npm start
 
-### 3. Mobile App
-```bash
-cd NewSocietyPay
+---
+
+3️⃣ Frontend Setup
+
+cd frontend
 npm install
 npx react-native run-android
-```
 
-### 4. AI Microservice
-```bash
-cd AI-service
+---
+
+4️⃣ ML Server
+
+cd ml-service
 pip install -r requirements.txt
-python main.py
-```
+python app.py
 
 ---
 
-## 🔮 Roadmap
+🔐 Environment Variables
 
-- [x] Smart payment system with Razorpay
-- [x] AI payment risk prediction
-- [x] NLP complaint categorization & routing
-- [x] Secretary dashboard
-- [x] Communication hub
-- [ ] **Visitor anomaly detection** (Isolation Forest — Unsupervised ML)
-- [ ] Real-time society chat
-- [ ] AI payment reminder bot
-- [ ] Smart maintenance prediction
+Create ".env" in backend:
+
+MONGO_URI=your_mongodb_url
+PORT=5000
+ML_API_URL=http://127.0.0.1:8000
 
 ---
 
-## 👨‍💻 Author
+⚠️ Challenges Faced & Solutions
 
-<div align="center">
+❌ Chart Crashing Issue
 
-**Rohit Jadhav**
-*NIT Silchar · Full Stack Developer · AI Enthusiast*
+- Cause: NaN / undefined values
+- Fix: Data sanitization + fixed ordering
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/your-profile)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rohitjadhav8849)
+❌ Real-Time Behavior Tracking
 
-</div>
+- Solved using interval-based API refresh
+
+❌ ML Data Quality Issue
+
+- Improved by:
+  - Feature engineering
+  - Data normalization
 
 ---
 
-<div align="center">
+🔥 Future Enhancements
 
-**⭐ Star this repo if you found it useful — it motivates me to keep building! 🚀**
+- 🔔 Push notifications for suspicious visitors
+- 📸 Face recognition integration
+- 📍 GPS-based tracking
+- 📊 Advanced ML model (Deep Learning)
+- 🧠 Predictive risk scoring
 
-*Built with ❤️ at NIT Silchar*
+---
 
-</div>
+📈 Impact
+
+- Improves security awareness
+- Reduces manual errors
+- Enables data-driven decisions
+- Adds intelligence to traditional systems
+
+---
+
+👨‍💻 Author
+
+Rohit Jadhav
+🎓 NIT Silchar (3rd Year)
+💻 Full Stack Developer | ML Enthusiast
+
+---
+
+⭐ If you like this project
+
+Give it a star ⭐ on GitHub — it helps a lot!
