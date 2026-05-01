@@ -5,7 +5,8 @@ exports.analyzecomplaint = async (req, res) => {
   try {
     const { complaint } = req.body;
     const response = await axios.post(
-      "http://127.0.0.1:8000/analyze-complaint",
+      // "http://127.0.0.1:8000/analyze-complaint",
+      `${MLservice}/analyze-complaint`,
       {
         complaint,
       }
@@ -20,7 +21,8 @@ exports.submitcomplaint = async (req, res) => {
   try {
     const { complaint } = req.body;
     const response = await axios.post(
-      "http://127.0.0.1:8000/analyze-complaint",
+      // "http://127.0.0.1:8000/analyze-complaint",
+      `${MLservice}/analyze-complaint`,
       {
         complaint,
       }

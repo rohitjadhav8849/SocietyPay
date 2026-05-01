@@ -1,6 +1,8 @@
 const axios =require("axios");
 const Payments= require("../models/paymentSchema");
 
+const MLservice= process.env.ML_API_URL;
+
 exports.predictPaymentRisk = async(req,res) =>{
    try{
       const {userid}= req.params;
@@ -26,7 +28,8 @@ exports.predictPaymentRisk = async(req,res) =>{
       })
     
       const resp=await axios.post(
-        "http://127.0.0.1:8000/predict-payment-risk",
+        // "http://127.0.0.1:8000/predict-payment-risk",
+        `${MLservice}/predict-payment-risk`,
         {
           late_payments,
           missed_payments

@@ -70,7 +70,7 @@ io.on("connection",(socket)=>{//here socket is one user connection  , if 5 users
     console.log("User disconnect");
   })
 
-  s
+  
 })
 })
 
@@ -86,7 +86,7 @@ const societyroutes=require("./routes/societyroutes");
 const airoutes=require("./routes/ai-routes");
 
 app.use((req,res,next)=>{
-  req.io=io;
+  req.io=io; 
   next();
 })
 app.use("/api/auth",authroutes);

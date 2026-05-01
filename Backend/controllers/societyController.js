@@ -48,7 +48,7 @@ exports.sendAnnouncement= async (req,res)=>{
        }) 
        await announcement.populate("sender", "name _id");
        req.io.to(req.user.societyid.toString()).emit("receiveAnnouncement",announcement);
-       res.json(announcement);
+       res.json(announcement);   
   } 
   catch(err){
    res.status(500).json({message:"server down"});
@@ -179,8 +179,10 @@ exports.getMemberDetails=async (req,res)=>{
 const society=require("../models/societySchema");
 
 exports.getAllScoities= async (req,res)=>{
+  console.log("req received");
     try{
       const socities = await society.find().select("name city state").sort({name:1});
+      console.log(socities);
     res.json(socities)
     }
     catch(err){

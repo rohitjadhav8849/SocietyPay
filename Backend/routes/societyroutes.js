@@ -42,7 +42,7 @@ const {getSocietyDasboard}=require("./../controllers/Dashboardcontroler")
 
 router.patch("/documents/verify",protect,verifyMember);
 router.get("/members",protect,getSocietyMembers);//gives all society members data
-router.get("/all",getAllScoities);
+router.get("/all",getAllScoities); 
 router.get("/member/:id",protect,getMemberDetails);
 router.post("/chat",protect,sendMessage);
 router.get("/chat",protect,getMessage);

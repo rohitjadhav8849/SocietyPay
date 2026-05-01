@@ -43,7 +43,8 @@ exports.detectvisitorRisk = async (req, res) => {
       );
 
       const resp = await axios.post(
-        "http://127.0.0.1:8000/detect-visitor-risk",
+        // "http://127.0.0.1:8000/detect-visitor-risk",
+        `${MLservice}/detect-visitor-risk`,
         {
           visit_frequency: visitorFrequency,
           entry_hour: entryTime,
